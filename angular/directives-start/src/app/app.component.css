@@ -1,0 +1,7 @@
+.container {
+  margin-top: 30px;
+}
+
+.odd {
+  background-image: linear-gradient(#0de0dd, #0d2de0);
+}
