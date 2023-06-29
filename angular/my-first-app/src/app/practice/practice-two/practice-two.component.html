@@ -1,0 +1,9 @@
+<button (click)="onClick()">Show Data</button>
+<p *ngIf="secretLineVisiable">Sevret data is {{ curData }}</p>
+<p
+  *ngFor="let data of dataArr; let i = index"
+  [ngStyle]="{ color: i < 4 ? '' : 'blue' }"
+  [ngClass]="{ hello: i >= 4 }"
+>
+  {{ data }}
+</p>

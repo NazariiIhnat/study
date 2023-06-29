@@ -1,0 +1,6 @@
+<div *ngFor="let user of users">
+  <p>
+    {{ user }} |
+    <a href="#" (click)="onChangeToInactive(user)">Set to inactive</a>
+  </p>
+</div>

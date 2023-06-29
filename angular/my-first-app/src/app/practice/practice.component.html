@@ -1,0 +1,3 @@
+<input type="text" placeholder="Enter username" [(ngModel)]="username" />
+<p>{{ username }}</p>
+<button [disabled]="username === ''" (click)="username = ''">Clear name</button>
