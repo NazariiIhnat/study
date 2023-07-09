@@ -11,7 +11,7 @@ import { SharedModule } from 'src/shared/shared.module';
     SharedModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'shoping-list', component: ShoppingListComponent },
+      { path: '', component: ShoppingListComponent },
     ]),
   ],
 })

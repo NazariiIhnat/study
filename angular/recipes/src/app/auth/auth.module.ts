@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [AuthComponent],
   imports: [
-    RouterModule.forChild([{ path: 'auth', component: AuthComponent }]),
+    RouterModule.forChild([{ path: '', component: AuthComponent }]),
     CommonModule,
     FormsModule,
   ],
