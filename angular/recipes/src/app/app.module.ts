@@ -3,30 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DropdownDirective } from 'src/shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shoping-list.service';
 import { RoutingModule } from './app-routing.module';
 import { RecipeService } from './recipes/recipe.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
-import { LoadingSpinnerComponent } from 'src/shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { AlertComponent } from 'src/shared/alert/alert.component';
 import { AlertDirective } from 'src/shared/alert/alert.directive';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 import { ShoppingListModule } from './shopping-list/shoping-list.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    DropdownDirective,
-    AuthComponent,
-    LoadingSpinnerComponent,
-    AlertComponent,
-    AlertDirective,
-  ],
+  declarations: [AppComponent, HeaderComponent, AuthComponent, AlertDirective],
   imports: [
     BrowserModule,
     FormsModule,
