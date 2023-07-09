@@ -16,6 +16,7 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AlertComponent } from 'src/shared/alert/alert.component';
 import { AlertDirective } from 'src/shared/alert/alert.directive';
 import { RecipesModule } from './recipes/recipes.model';
+import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RecipesModule } from './recipes/recipes.model';
     HttpClientModule,
     RoutingModule,
     RecipesModule,
+    RecipesRoutingModule,
   ],
   providers: [
     ShoppingListService,
