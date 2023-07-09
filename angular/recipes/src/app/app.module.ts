@@ -13,6 +13,7 @@ import { AlertDirective } from 'src/shared/alert/alert.directive';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 import { ShoppingListModule } from './shopping-list/shoping-list.module';
+import { CoreModule } from './core.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, AuthComponent, AlertDirective],
@@ -25,15 +26,7 @@ import { ShoppingListModule } from './shopping-list/shoping-list.module';
     RecipesModule,
     ShoppingListModule,
     RecipesRoutingModule,
-  ],
-  providers: [
-    ShoppingListService,
-    RecipeService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true,
-    },
+    CoreModule,
   ],
   bootstrap: [AppComponent],
 })
