@@ -2,31 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ShoppingListService } from './shopping-list/shoping-list.service';
+import { FormsModule } from '@angular/forms';
 import { RoutingModule } from './app-routing.module';
-import { RecipeService } from './recipes/recipe.service';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthComponent } from './auth/auth.component';
-import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { AlertDirective } from 'src/shared/alert/alert.directive';
+import { HttpClientModule } from '@angular/common/http';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 import { ShoppingListModule } from './shopping-list/shoping-list.module';
 import { CoreModule } from './core.module';
+import { SharedModule } from 'src/shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AuthComponent, AlertDirective],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     RoutingModule,
     RecipesModule,
     ShoppingListModule,
     RecipesRoutingModule,
     CoreModule,
+    SharedModule,
+    AuthModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -8,7 +8,6 @@ import { SharedModule } from 'src/shared/shared.module';
 @NgModule({
   declarations: [ShoppingListComponent, ShoppingEditComponent],
   imports: [
-    RouterModule,
     SharedModule,
     FormsModule,
     RouterModule.forChild([
