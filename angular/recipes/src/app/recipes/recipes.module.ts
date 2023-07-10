@@ -8,7 +8,7 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesRoutingModule } from './recipes-routing.module';
-import { SharedModule } from 'src/shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [

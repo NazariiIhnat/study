@@ -4,9 +4,8 @@ import {
   Resolve,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Recipe } from './recipe.model';
-import { DataStorageService } from 'src/shared/data-storage.service';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesResolverService implements Resolve<Recipe[]> {

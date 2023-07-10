@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Ingredient } from 'src/shared/ingredient.model';
+import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from '../shoping-list.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
