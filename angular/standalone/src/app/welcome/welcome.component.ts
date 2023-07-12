@@ -1,7 +1,19 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { DetailsComponent } from "./details/details.component";
+import { AnalyticsService } from "../shared/analytics.service";
+import { TestRoutComponent } from "../test/test-rout.component";
+import { RouterModule } from "@angular/router";
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html'
+  standalone: true,
+  imports: [DetailsComponent, TestRoutComponent, RouterModule],
+  selector: "app-welcome",
+  templateUrl: "./welcome.component.html",
 })
-export class WelcomeComponent {}
+export class WelcomeComponent {
+  constructor(private test: AnalyticsService) {}
+
+  onClick() {
+    this.test.registerClick('From welcome');
+  }
+}

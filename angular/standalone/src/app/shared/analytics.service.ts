@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AnalyticsService {
-  registerClick() {
-    console.log('Clicked!');
+  private lastClick: string = "";
+
+  registerClick(msg: string) {
+    console.log(this.lastClick);
+    this.lastClick = msg;
   }
 }
