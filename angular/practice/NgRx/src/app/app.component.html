@@ -1,0 +1,25 @@
+<body>
+  <h1>Quantity</h1>
+  <span>{{ quantity$ | async }}</span>
+  <button (click)="increment()">+</button>
+  <button (click)="decrement()">-</button>
+  <hr />
+  <h1>Random password</h1>
+  <ul>
+    <li *ngFor="let password of passwords$ | async">{{ password }}</li>
+  </ul>
+  <button (click)="onGeneratePassword()">Add</button>
+  <br />
+  <button (click)="onClearPasswords()">Clear</button>
+  <hr />
+  <h1>Users</h1>
+  <ul>
+    <li *ngFor="let user of users$ | async">
+      <span>Name: {{ user.name }}</span>
+      <span> Age: {{ user.age }}</span>
+      <span> ID: {{ user.id }}</span>
+    </li>
+  </ul>
+  <button (click)="onAddUser()">add</button>
+  <button (click)="onDeleteUser()">delete</button>
+</body>
