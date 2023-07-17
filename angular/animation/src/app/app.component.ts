@@ -6,6 +6,7 @@ import {
   transition,
   keyframes,
   group,
+  AnimationEvent,
 } from '@angular/animations';
 import { Component } from '@angular/core';
 
@@ -174,5 +175,13 @@ export class AppComponent {
 
   onShrink() {
     this.wildState = 'shrunken';
+  }
+
+  animationStarted(event: AnimationEvent) {
+    console.log('Animation started', event);
+  }
+
+  animationEnded(event: AnimationEvent) {
+    console.log('Animation ended', event);
   }
 }
