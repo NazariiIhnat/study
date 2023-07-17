@@ -4,6 +4,7 @@ import {
   style,
   animate,
   transition,
+  keyframes,
 } from '@angular/animations';
 import { Component } from '@angular/core';
 
@@ -64,6 +65,69 @@ import { Component } from '@angular/core';
           })
         ),
         animate(500),
+      ]),
+    ]),
+
+    trigger('list1', [
+      state(
+        'in',
+        style({
+          opacity: 1,
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100px)',
+        }),
+        animate(300),
+      ]),
+      transition('* => void', [
+        animate(
+          300,
+          style({
+            transform: 'translateX(100px)',
+            opacity: 0,
+          })
+        ),
+      ]),
+    ]),
+
+    trigger('list2', [
+      state(
+        'in',
+        style({
+          opacity: 1,
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('void => *', [
+        animate(
+          1000,
+          keyframes([
+            style({
+              transform: 'translateX(-100px)',
+              opacity: 0,
+              offset: 0,
+            }),
+            style({
+              transform: 'translateX(-50px)',
+              opacity: 0.5,
+              offset: 0.3,
+            }),
+            style({
+              transform: 'translateX(-20px)',
+              opacity: 1,
+              offset: 0.8,
+            }),
+            style({
+              transform: 'translateX(0px)',
+              opacity: 0,
+              offset: 1,
+            }),
+          ])
+        ),
       ]),
     ]),
   ],
