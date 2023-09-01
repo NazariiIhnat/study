@@ -53,7 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
           $protocol = 'http';
         }
-        header("Location: $protocol://" . $_SERVER['HTTP_POST'] . "multiple-pages/article.php?id=$id");
+        echo $protocol;
+        header("Location: /multiple_pages/article.php?id=$id");
         exit;
       } else{
         echo mysqli_stmt_error($stmt);
