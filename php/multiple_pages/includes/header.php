@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
+    <title>My blog</title>
+    <meta charset="utf-8">
 </head>
-
 <body>
-  <header>
-    <h1>Articles</h1>
-  </header>
-  <main>
+
+    <header>
+        <h1>My blog</h1>
+    </header>
+
+    <main>
