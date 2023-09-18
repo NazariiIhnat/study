@@ -22,4 +22,4 @@ if (ini_get("session.use_cookies")) {
 
 session_destroy();
 
-redirect('/multiple_pages/index.php'');
+redirect('/multiple_pages/index.php');
