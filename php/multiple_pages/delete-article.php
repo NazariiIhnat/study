@@ -1,11 +1,8 @@
 <?php
 
-require 'classes/Database.php';
-require 'classes/Article.php';
-require 'includes/url.php';
+require 'includes/init.php';
 
-$db = new Database();
-$conn = $db->getConn();
+$conn = require 'includes/db.php';
 
 if (isset($_GET['id'])) {
 
@@ -21,7 +18,7 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($article->delete($conn)) {
-        redirect("/multiple_pages/index.php");
+        Url::redirect("/multiple_pages/index.php");
     } 
 }
 

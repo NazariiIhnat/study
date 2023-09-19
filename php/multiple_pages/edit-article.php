@@ -1,11 +1,7 @@
 <?php
 
-require 'classes/Database.php';
-require 'classes/Article.php';
-require 'includes/url.php';
-
-$db = new Database();
-$conn = $db->getConn();
+require 'includes/init.php';
+$conn = require 'includes/db.php';
 
 if (isset($_GET['id'])) {
 
@@ -25,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $article->published_at = $_POST['published_at'];
 
     if ($article->update($conn)) {
-        redirect("/multiple_pages/article.php?id={$article->id}");
+        Url::redirect("/multiple_pages/article.php?id={$article->id}");
         
     }
 }
