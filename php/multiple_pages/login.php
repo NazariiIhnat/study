@@ -3,20 +3,20 @@
 require 'includes/init.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $conn = require 'includes/db.php';
-  if (User::authenticate($conn, $_POST['username'], $_POST['password'])) {
+
+    $conn = require 'includes/db.php';
+
+    if (User::authenticate($conn, $_POST['username'], $_POST['password'])) {
         
-      session_regenerate_id(true);
+        Auth::login();
 
-      $_SESSION['is_logged_in'] = true;
+        Url::redirect('/multiple_pages/index.php');
 
-      Url::redirect('/multiple_pages/index.php');
-
-  } else {
+    } else {
         
-      $error = "login incorrect";
+        $error = "login incorrect";
 
-  }
+    }
 }
 
 ?>
@@ -25,22 +25,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h2>Login</h2>
 
 <?php if (! empty($error)) : ?>
-<p><?= $error ?></p>
+    <p><?= $error ?></p>
 <?php endif; ?>
 
 <form method="post">
 
-  <div>
-    <label for="username">Username</label>
-    <input name="username" id="username">
-  </div>
+    <div>
+        <label for="username">Username</label>
+        <input name="username" id="username">
+    </div>
 
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-  </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+    </div>
 
-  <button>Log in</button>
+    <button>Log in</button>
 
 </form>
 
