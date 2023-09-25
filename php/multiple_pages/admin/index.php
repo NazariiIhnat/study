@@ -6,7 +6,9 @@ Auth::requireLogin();
 
 $conn = require '../includes/db.php';
 
-$articles = Article::getAll($conn);
+$pagination = new Pagination($_GET['page'] ?? 1, 6, Article::getTotal($conn));
+
+$articles = Article::getPage($conn, $pagination->limit, $pagination->offset);
 
 ?>
 <?php require '../includes/header.php'; ?>
@@ -16,25 +18,27 @@ $articles = Article::getAll($conn);
 <p><a href="new-article.php">New article</a></p>
 
 <?php if (empty($articles)) : ?>
-    <p>No articles found.</p>
+<p>No articles found.</p>
 <?php else : ?>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($articles as $article) : ?>
-                <tr>
-                    <td>
-                        <a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($articles as $article) : ?>
+    <tr>
+      <td>
+        <a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+
+<?php require '../includes/pagination.php'; ?>
 
 <?php endif; ?>
 

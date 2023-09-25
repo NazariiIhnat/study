@@ -4,25 +4,29 @@ require 'includes/init.php';
 
 $conn = require 'includes/db.php';
 
-$articles = Article::getAll($conn);
+$pagination = new Pagination($_GET['page'] ?? 1, 4, Article::getTotal($conn));
+
+$articles = Article::getPage($conn, $pagination->limit, $pagination->offset);
 
 ?>
 <?php require 'includes/header.php'; ?>
 
 <?php if (empty($articles)) : ?>
-    <p>No articles found.</p>
+<p>No articles found.</p>
 <?php else : ?>
 
-    <ul>
-        <?php foreach ($articles as $article) : ?>
-            <li>
-                <article>
-                    <h2><a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></h2>
-                    <p><?= htmlspecialchars($article['content']); ?></p>
-                </article>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+<ul>
+  <?php foreach ($articles as $article) : ?>
+  <li>
+    <article>
+      <h2><a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></h2>
+      <p><?= htmlspecialchars($article['content']); ?></p>
+    </article>
+  </li>
+  <?php endforeach; ?>
+</ul>
+
+<?php require 'includes/pagination.php'; ?>
 
 <?php endif; ?>
 
