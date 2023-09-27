@@ -32,6 +32,12 @@ class Article
     public $published_at;
 
     /**
+     * PAth to the image
+     * @var string
+     */
+    public $image_file;
+
+    /**
      * Validation errors
      * @var array
      */
@@ -223,5 +229,21 @@ class Article
      */
     public static function getTotal($conn) {
         return $conn->query('SELECT COUNT(*) FROM articles')->fetchColumn();
+    }
+
+    /**
+     * Update the image file property
+     * 
+     * @param object $conn Connection to the database
+     * @param string $filename The filename of the image
+     * 
+     * @return boolean True if it was successful, false otherwise
+     */
+    public function setIMageFile($conn, $filename) {
+        $sql = "UPDATE articles SET image_file = :image_file WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':image_file', $filename, $filename == null ? PDO::PARAM_NULL : PDO_::ARAM_STR);
+        return $stmt->execute();
     }
 }

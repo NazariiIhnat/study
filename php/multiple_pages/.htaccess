@@ -1,0 +1,2 @@
+php_value upload_max_filesize 2m
+php_flag display_startup_errors off
