@@ -9,7 +9,7 @@ export default function ExpenseForm(props) {
     setEnteredTitle(event.target.value);
   };
   const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
+    setEnteredAmount(+event.target.value);
   };
   const dateChangeHandle = (event) => {
     setEnteredDate(event.target.value);
