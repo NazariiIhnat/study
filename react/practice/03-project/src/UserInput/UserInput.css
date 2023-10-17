@@ -1,0 +1,21 @@
+.container {
+  width: 500px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 9px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+button {
+  width: fit-content;
+  color: white;
+  background-color: purple;
+  cursor: pointer;
+}

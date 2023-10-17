@@ -1,0 +1,6 @@
+.root-container {
+  background-color: rgb(31, 15, 15);
+  height: 100vh;
+  padding: 40px;
+  position: relative;
+}
