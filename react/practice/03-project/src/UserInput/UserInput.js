@@ -1,29 +1,15 @@
 import "./UserInput.css";
-import { useState } from "react";
+import { useRef } from "react";
 
 export default function UserInput(props) {
-  const [userInput, setUserInput] = useState({
-    username: "",
-    age: "",
-  });
-
-  const inputChangeHandler = (event) => {
-    event.preventDefault();
-    const { id, value } = event.target;
-    setUserInput((prev) => {
-      return {
-        ...prev,
-        [id]: value,
-      };
-    });
-  };
+  const inputName = useRef();
+  const inputAge = useRef();
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onHandleSubmit(userInput);
-    setUserInput({
-      username: "",
-      age: "",
+    props.onHandleSubmit({
+      username: inputName.current.value,
+      age: inputAge.current.value,
     });
   };
 
@@ -31,19 +17,9 @@ export default function UserInput(props) {
     <div className="container">
       <form onSubmit={submitHandler}>
         <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          onChange={inputChangeHandler}
-          value={userInput.username}
-        />
+        <input type="text" id="username" ref={inputName} />
         <label htmlFor="age">Age (Years)</label>
-        <input
-          type="number"
-          id="age"
-          onChange={inputChangeHandler}
-          value={userInput.age}
-        />
+        <input type="number" id="age" ref={inputAge} />
         <button type="submit">Add User</button>
       </form>
     </div>
