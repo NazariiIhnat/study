@@ -2,6 +2,7 @@ import "./App.css";
 import UserInput from "./UserInput/UserInput";
 import UsersList from "./UsersList/UsersList";
 import Modal from "./Modal/Modal";
+import Wraper from "./Helpers/Wraper";
 import { useState } from "react";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
   const closeModal = () => setIsVisibleModal(false);
 
   return (
-    <div className="root-container">
+    <Wraper className="root-container">
       <UserInput onHandleSubmit={submitHandler} />
       {userList.length === 0 ? (
         <h1 style={{ color: "white", textAlign: "center" }}>
@@ -31,7 +32,7 @@ function App() {
       )}
 
       {isVisibleModal && <Modal onCloseModal={closeModal} />}
-    </div>
+    </Wraper>
   );
 }
 
